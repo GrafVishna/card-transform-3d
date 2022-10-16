@@ -1,0 +1,136 @@
+body {
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   font-weight: 600;
+   background-color: rgb(19, 19, 19);
+}
+
+.wrapper {
+   padding: 70px 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 30px;
+}
+
+.link {
+   font-size: 30px;
+}
+
+.box {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 300px;
+   height: 400px;
+   position: relative;
+   transform-style: preserve-3d;
+   perspective: 1000px;
+   cursor: pointer;
+   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.box:target .front,
+.box:target .back {
+   transform-style: preserve-3d;
+   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.box:target .back {
+   transform: rotateY(0deg);
+}
+
+.box:target .front {
+   transform: rotateY(-180deg);
+}
+
+.front,
+.back {
+   text-align: center;
+   color: rgba(255, 255, 255, 0.7);
+   font-size: 40px;
+   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+   backface-visibility: hidden;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+}
+
+.front::before {
+   content: '';
+   position: absolute;
+   border-radius: 20px;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: radial-gradient(circle, rgba(0, 0, 0, 0.15730042016806722) 44%, rgba(0, 0, 0, 0.7231267507002801) 100%);
+}
+
+
+.back {
+   background: url('https://media.istockphoto.com/photos/mountain-peak-zugspitze-summer-day-at-lake-eibsee-near-garmisch-picture-id1042404662?k=20&m=1042404662&s=612x612&w=0&h=Bjb0K0_frNQp9RSSrcERDe_tkh8E3iBs5dGcIrApD4E=') 50% / cover no-repeat;
+}
+
+.front {
+   background: url('https://res.cloudinary.com/jerrick/image/upload/v1608503889/5fdfd251946696001daa84f9.jpg') 50% / cover no-repeat;
+}
+
+.content {
+   position: relative;
+   transform: translateZ(50px);
+   text-transform: uppercase;
+   backdrop-filter: blur(5px);
+   padding: 20px 5px;
+   border-radius: 30px;
+}
+
+
+.box:hover .front,
+.box:hover .back {
+   transform-style: preserve-3d;
+   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.box:hover .back {
+   transform: rotateY(0deg);
+}
+
+.box:hover .front {
+   transform: rotateY(-180deg);
+}
+
+.title {
+   transform: scale(0.9) translateZ(50px);
+   text-shadow: 5px 5px 15px #000;
+}
+
+.subtitle {
+   transform: scale(0.9) translateZ(50px);
+   perspective: inherit;
+   text-shadow: 5px 5px 15px #000;
+}
+
+.box .back {
+   transform: rotateY(180deg);
+   transform-style: preserve-3d;
+}
+
+.box .front {
+   transform: rotateY(0deg);
+   transform-style: preserve-3d;
+}
+
+.btn-line {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   column-gap: 30px;
+   color: #fff;
+}
